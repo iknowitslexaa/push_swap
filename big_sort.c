@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handling.c                                   :+:      :+:    :+:   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aneiva-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 17:06:58 by aneiva-d          #+#    #+#             */
-/*   Updated: 2024/08/21 15:22:18 by aneiva-d         ###   ########.fr       */
+/*   Created: 2024/08/21 18:03:57 by aneiva-d          #+#    #+#             */
+/*   Updated: 2024/08/21 18:12:34 by aneiva-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_input_error(int	argc, char **argv)
+void	big_sort(t_stack **a, t_stack **b)
 {
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		exit(0);
-	else if (argc == 2)
+	int	stacklen;
+
+	stacklen = findstacklen(*a);
+	//these 2 will bring the top node to stack b (useful
+	//when the original stack has up to 5 numbers/nodes).
+	if (stacklen-- > 3 && !is_stack_sorted(*a))
+		pb(a, b, false);
+	if (stacklen-- > 3 && !is_stack_sorted(*a))
+		pb(a, b, false);
+	//This next loop will prepare the stacks for the big sort.
+	while (stacklen-- > 3 && is_stack_sorted(*a))
 	{
-		argv = ft_split(argv[1], ' ');
 	}
-	return (argv);
 }

@@ -1,15 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aneiva-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 14:58:24 by aneiva-d          #+#    #+#             */
-/*   Updated: 2024/08/21 15:00:18 by aneiva-d         ###   ########.fr       */
+/*   Created: 2024/08/21 16:44:54 by aneiva-d          #+#    #+#             */
+/*   Updated: 2024/08/21 16:48:17 by aneiva-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-static int
+bool	is_stack_sorted(t_stack *stack)
+{
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->nbr > stack->next->nbr)
+			return (false);
+		stack->next;
+	}
+	return (true);
+}

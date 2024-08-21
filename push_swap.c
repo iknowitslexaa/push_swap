@@ -26,8 +26,8 @@ int	main(int argc, char **argv)
 	//presented in the form of a string.
 	argv = check_input_error(argc, argv);
 	//this function creates the a stack.
-	stacks.head_a = create_list_a(argc, argv);
-	stacks.head_b = NULL;
+	create_list_a(&a, argv + 1);
+	b = NULL;
 	//this loop will sort the stack, if necessary.
 	if (!stack_sorted(a))
 	{
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 		else if (stack_len(a) = 3)
 			tiny_sort(&a);
 		else
-			push_swap(&a, &b);
+			big_sort(&a, &b);
 	}
 	free_stack;
 	return (0);
